@@ -1,0 +1,24 @@
+{
+  "name": "xgrz/firebird-support",
+  "description": "Firebird database driver for the Laravel Framework",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^12.0",
+    "illuminate/container": "^12.0",
+    "illuminate/database": "^12.0",
+    "illuminate/events": "^12.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "HarryGulliford\\Firebird\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Xgrz\\Firebird\\FirebirdServiceProvider"
+      ]
+    }
+  }
+}
