@@ -1,9 +1,9 @@
 <?php
 
+namespace Xgrz\Firebird;
+
 use Illuminate\Database\Connection;
 use Illuminate\Support\ServiceProvider;
-use Xgrz\Firebird\FirebirdConnection;
-use Xgrz\Firebird\FirebirdConnector;
 
 class FirebirdServiceProvider extends ServiceProvider
 {
