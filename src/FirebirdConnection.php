@@ -3,6 +3,7 @@
 namespace Xgrz\Firebird;
 
 use Illuminate\Database\Connection as DatabaseConnection;
+use Illuminate\Support\Collection;
 use Xgrz\Firebird\Query\Builder as FirebirdQueryBuilder;
 use Xgrz\Firebird\Query\Grammars\FirebirdGrammar as FirebirdQueryGrammar;
 use Xgrz\Firebird\Query\Processors\FirebirdProcessor as FirebirdQueryProcessor;
@@ -16,7 +17,7 @@ class FirebirdConnection extends DatabaseConnection
      *
      * @return \Illuminate\Database\Query\Grammars\Grammar
      */
-    protected function getDefaultQueryGrammar()
+    protected function getDefaultQueryGrammar(): FirebirdQueryGrammar
     {
         return new FirebirdQueryGrammar($this);
     }
@@ -26,7 +27,7 @@ class FirebirdConnection extends DatabaseConnection
      *
      * @return \Illuminate\Database\Query\Processors\Processor
      */
-    protected function getDefaultPostProcessor()
+    protected function getDefaultPostProcessor(): FirebirdQueryProcessor
     {
         return new FirebirdQueryProcessor;
     }
@@ -36,7 +37,7 @@ class FirebirdConnection extends DatabaseConnection
      *
      * @return \Firebird\Schema\Builder
      */
-    public function getSchemaBuilder()
+    public function getSchemaBuilder(): FirebirdSchemaBuilder
     {
         if (is_null($this->schemaGrammar)) {
             $this->useDefaultSchemaGrammar();
@@ -72,9 +73,9 @@ class FirebirdConnection extends DatabaseConnection
      *
      * @param  string  $procedure
      * @param  array  $values
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
-    public function executeProcedure($procedure, array $values = [])
+    public function executeProcedure($procedure, array $values = []): Collection
     {
         return $this->query()->fromProcedure($procedure, $values)->get();
     }

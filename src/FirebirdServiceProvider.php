@@ -12,7 +12,7 @@ class FirebirdServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         Connection::resolverFor('firebird', function($connection, $database, $tablePrefix, $config) {
             return new FirebirdConnection($connection, $database, $tablePrefix, $config);

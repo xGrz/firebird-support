@@ -4,6 +4,7 @@ namespace Xgrz\Firebird;
 
 use Illuminate\Database\Connectors\Connector;
 use Illuminate\Database\Connectors\ConnectorInterface;
+use PDO;
 
 class FirebirdConnector extends Connector implements ConnectorInterface
 {
@@ -13,7 +14,7 @@ class FirebirdConnector extends Connector implements ConnectorInterface
      * @param  array  $config
      * @return \PDO
      */
-    public function connect(array $config)
+    public function connect(array $config): PDO
     {
         return $this->createConnection(
             $this->getDsn($config),
@@ -28,7 +29,7 @@ class FirebirdConnector extends Connector implements ConnectorInterface
      * @param  array  $config
      * @return string
      */
-    protected function getDsn(array $config)
+    protected function getDsn(array $config): string
     {
         extract($config);
 
