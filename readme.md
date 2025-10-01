@@ -15,7 +15,7 @@ Thank you, Harry, for your work!
 You can install the package via composer:
 
 ```bash
-composer require xgrz/support-firebird
+composer require xgrz/firebird-support
 ```
 
 _The package will automatically register itself._
