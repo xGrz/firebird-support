@@ -146,7 +146,7 @@ class FirebirdGrammar extends Grammar
      * @param  array  $values
      * @return string
      */
-    public function compileProcedure(Builder $query, $procedure, array $values = null)
+    public function compileProcedure(Builder $query, $procedure, ?array $values = null)
     {
         $procedure = $this->wrap($procedure);
 
